@@ -3524,6 +3524,10 @@ static int smblib_handle_usb_current(struct smb_charger *chg,
 					int usb_current)
 {
 	int rc = 0, rp_ua, typec_mode;
+#ifdef CONFIG_MACH_XIAOMI_CLOVER
+        u8 stat;
+        bool legacy;
+#endif
 
 #ifdef CONFIG_FORCE_FAST_CHARGE
 	if (force_fast_charge > 0 &&
